@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person {
     private String name;
     private int age;
     private float height;
@@ -23,6 +23,24 @@ public class Person {
             this.age = age;
         }
     }
+    public void setAge(byte age) {
+        if (age>=0 && age<=100 ) {
+            this.age = age;
+        }
+    }
+
+    public void setAge(short age) {
+        if (age>=0 && age<=100 ) {
+            this.age = age;
+        }
+    }
+
+    public void setAge(long age) {
+        if (age>=0 && age<=100 ) {
+            this.age = (int) age;
+        }
+    }
+
     public int getAge(){
         return this.age;
     }
@@ -34,6 +52,8 @@ public class Person {
     public float getHeight(){
         return this.height;
     }
+
+    public abstract void activity();
 
     public void getInfo(){
         System.out.println("Tên: " + this.name);

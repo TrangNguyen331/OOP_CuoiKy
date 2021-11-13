@@ -10,4 +10,8 @@ public class Student extends Person{
         super.getInfo();
         System.out.println("Tên trường: " + this.universityName);
     }
+
+    public void activity(){
+        System.out.println(this.getName() +" đang học Toán!");
+    }
 }
