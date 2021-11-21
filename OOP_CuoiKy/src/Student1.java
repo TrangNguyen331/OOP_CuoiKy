@@ -1,4 +1,4 @@
-public class Student1 extends Person{
+public class Student1 extends Person implements ISpeak,IStudy{
     public String universityName;
 
     public Student1(String name, int age, float height, String universityName){
@@ -13,5 +13,12 @@ public class Student1 extends Person{
 
     public void activity(){
         System.out.println(this.getName() +" đang học Anh văn!");
+    }
+    public void study(){
+        System.out.println(this.getName() +"is studing.");
+    }
+    @Override
+    public void speak() {
+        System.out.println(this.getName() + " is speaking.");
     }
 }
