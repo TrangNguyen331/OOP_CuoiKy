@@ -1,4 +1,4 @@
-public abstract class Person {
+public abstract class Person implements ISpeak {
     private String name;
     private int age;
     private float height;
