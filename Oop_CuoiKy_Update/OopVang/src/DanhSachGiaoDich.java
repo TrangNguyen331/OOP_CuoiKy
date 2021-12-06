@@ -23,7 +23,7 @@ public class DanhSachGiaoDich {
             }
         });
         for (GiaoDich giaoDich: giaoDichs
-             ) {
+        ) {
             if(giaoDich instanceof GiaoDichTienTe){
                 giaoDich.inGiaoDich();
             }
@@ -37,10 +37,9 @@ public class DanhSachGiaoDich {
                 return o1.getMaGD()>o2.getMaGD()?1:0;
             }
         });
-        for (GiaoDich giaoDichTienTe: giaoDichs
-        ) {
-            if(giaoDichs instanceof GiaoDichVang){
-                giaoDichTienTe.inGiaoDich();
+        for (GiaoDich giaoDich: giaoDichs) {
+            if(giaoDich instanceof GiaoDichVang){
+                giaoDich.inGiaoDich();
             }
         }
     }
@@ -88,15 +87,9 @@ public class DanhSachGiaoDich {
             System.out.printf("Tổng trung bình giao dịch vàng là:"+tong/soLuong+"\n");
         }
     }
-    public void xuatDanhSachGiaoDichLonHon(double thanhTien){
-        giaoDichs.sort(new Comparator<GiaoDich>() {
-            @Override
-            public int compare(GiaoDich o1, GiaoDich o2) {
-                return o1.getMaGD()>o2.getMaGD()?1:0;
-            }
-        });
-        for(GiaoDich giaoDich:giaoDichs){
-            if(giaoDich.thanhTien()>thanhTien){
+    public void xuatDanhSachGiaoDichTheoDG(int n){
+        for (GiaoDich giaoDich: giaoDichs) {
+            if(giaoDich.getDonGia()== n){
                 giaoDich.inGiaoDich();
             }
         }

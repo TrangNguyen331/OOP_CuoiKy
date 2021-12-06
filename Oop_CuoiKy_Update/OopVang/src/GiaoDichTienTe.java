@@ -2,7 +2,7 @@ public class GiaoDichTienTe extends GiaoDich {
     public enum LoaiTienTe{
         VND,
         USD,
-        Euro
+        EURO
     }
 
     private double tiGia;
@@ -44,7 +44,7 @@ public class GiaoDichTienTe extends GiaoDich {
             return this.getSoLuong()*this.getDonGia();
         }
         else
-        return this.getSoLuong()*this.getDonGia()*this.getTiGia();
+            return this.getSoLuong()*this.getDonGia()*this.getTiGia();
     }
 
     @Override
