@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 import java.lang.String;
 
 public class Main {
-    static Scanner sc = new Scanner(System.in);
-    static GiaoDichTienTe nhapGD(GiaoDichTienTe gdtt) {
+    static Scanner sc = new Scanner(System.in); // Tạo 1 đối tượng Scanner có tên đầu vào,System.in được sử dụng để lấy đầu vào từ đầu vào tiêu chuẩn
+    static GiaoDichTienTe nhapGD(GiaoDichTienTe gdtt) { //Dùng để nhập dữ liệu giao dịch tiền tệ từ bàn phím
         System.out.println("Nhập mã giao dịch: ");
         gdtt.setMaGD(sc.nextInt());
         System.out.println("Nhập đơn giá: ");
@@ -14,7 +11,7 @@ public class Main {
         System.out.println("Nhập số lượng:");
         gdtt.setSoLuong(sc.nextInt());
         System.out.println("Nhập loại tiền: ");
-        boolean flag=true;
+        boolean flag=true;              //Đặt 3 dữ liệu bắt buộc nếu chọn khác 3 dữ liệu này thì cần chọn lại
         int select=0;
         do {
             System.out.println(
@@ -45,7 +42,7 @@ public class Main {
         gdtt.setTiGia(sc.nextInt());
         return gdtt;
     }
-    static GiaoDichVang nhapGD(GiaoDichVang gdv){
+    static GiaoDichVang nhapGD(GiaoDichVang gdv){//Dùng để nhập dữ liệu giao dịch vàng từ bàn phím
         System.out.println("Nhập mã giao dịch: ");
         gdv.setMaGD(sc.nextInt());
         System.out.println("Nhập đơn giá: ");
@@ -58,10 +55,10 @@ public class Main {
     }
 
     public static void main(String[] args){
-        DanhSachGiaoDich danhSachGiaoDich=new DanhSachGiaoDich();
+        DanhSachGiaoDich danhSachGiaoDich=new DanhSachGiaoDich(); //Tạo 1 danh sách giao dịch
         int a, n = 0;
         boolean flag = true;
-        do {
+        do {                                                //Các lựa chọn khi chạy chương trình
             System.out.println("Bạn chọn làm gì?");
             System.out.println(
                     "1. Nhập giao dịch tiền tệ.\n" +
@@ -76,9 +73,9 @@ public class Main {
             );
             a = sc.nextInt();
             switch (a){
-                case 1:
-                    System.out.println("Nhập số lượng đơn cần nhập: ");
-                    n = sc.nextInt();
+                case 1:                                         //Nhập số lương đơn giao dịch tiền tệ và mảng các giao dịch.Ví dụ khi điền số lượng đơn là 2 thì sẽ nhập
+                    System.out.println("Nhập số lượng đơn cần nhập: "); // thông tin của 2 đơn giao dịch tiền tệ.Thông tin cần nhập được ghi ở
+                    n = sc.nextInt();                                    // static GiaoDichTienTe nhapGD(GiaoDichTienTe gdtt)
                     for (int i=0;i<n;i++){
                         System.out.println("Nhập đơn thứ "+ (i+1)+": ");
                         GiaoDichTienTe gdtien = new GiaoDichTienTe();
@@ -86,7 +83,7 @@ public class Main {
                     }
                     System.out.println("Đã nhập xong!\n");
                     break;
-                case 2:
+                case 2:                                            //Nhập số lương đơn giao dịch vàng và mảng các giao dịch
                     System.out.println("Nhập số lượng đơn cần nhập: ");
                     n = sc.nextInt();
                     for (int i=0;i<n;i++){
@@ -98,34 +95,34 @@ public class Main {
                     break;
 
                 case 3:
-                    danhSachGiaoDich.xuatDanhSachGiaoDichTienTe();
+                    danhSachGiaoDich.xuatDanhSachGiaoDichTienTe();  //Xuất các giao dịch tiền tệ vừa mới nhập từ bàn phím
                     break;
                 case 4:
-                    danhSachGiaoDich.xuatDanhSachGiaoDichVang();
+                    danhSachGiaoDich.xuatDanhSachGiaoDichVang();   //Xuất các giao dịch vàng vừa mới nhập từ bàn phím
                     break;
                 case 5:
-                    danhSachGiaoDich.xuatTongSoLuongGiaoDich(true);
+                    danhSachGiaoDich.xuatTongSoLuongGiaoDich(true);  //Xuất tổng số giao dịch tiền tệ đã nhập
                     break;
                 case 6:
-                    danhSachGiaoDich.xuatTongSoLuongGiaoDich(false);
+                    danhSachGiaoDich.xuatTongSoLuongGiaoDich(false); //Xuất tổng số giao dịch vàng đã nhập
                     break;
                 case 7:
-                    danhSachGiaoDich.xuatTrungBinhThanhTienGiaoDich(true);
+                    danhSachGiaoDich.xuatTrungBinhThanhTienGiaoDich(true); //Xuất trung bình tiền đã giao dịch tiền tệ
                     break;
                 case 8:
-                    danhSachGiaoDich.xuatTrungBinhThanhTienGiaoDich(false);
+                    danhSachGiaoDich.xuatTrungBinhThanhTienGiaoDich(false); //Xuất trung bình tiền đã giao dịch vàng
                     break;
                 case 9:
-                    System.out.println("Nhập đơn giá: ");
-                    n = sc.nextInt();
+                    System.out.println("Nhập đơn giá: "); //Xuất theo các đơn giá mà giao dịch đã nhập.Ví dụ nhập đơn giá 20000 thì sẽ xuất ra các giao dịch có đơn giá là
+                    n = sc.nextInt();                        // 20000
                     danhSachGiaoDich.xuatDanhSachGiaoDichTheoDG(n);
                     break;
                 default:
-                    System.out.println("Chào tạm biệt!");
+                    System.out.println("Chào tạm biệt!");//Nếu lựa chọn khác các số trên sẽ xuất ra dòng này và kết thúc chương trình.
                     flag = false;
                     break;
             }
-        } while (flag);
+        } while (flag); //Dùng để chạy tiếp tục chương trình nếu có lựa chọn khác trong các số trên
 
     }
 }
